@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Igloo Inc. — Building the Largest Onchain Community</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav id="nav">
+    <div class="nav-logo">
+      <span class="logo-text glitch" data-text="IGLOO">IGLOO</span>
+      <span class="logo-dot">INC.</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#ventures">Ventures</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="#contact" class="btn-outline">Get in touch</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="hero">
+    <canvas id="hero-canvas"></canvas>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Est. 2021 — Web3 Company</p>
+      <h1 class="hero-title">
+        <span class="line glitch-block" data-text="Building the">Building the</span>
+        <span class="line glitch-block" data-text="Largest Onchain">Largest Onchain</span>
+        <span class="line glitch-block accent" data-text="Community.">Community.</span>
+      </h1>
+      <p class="hero-sub">We create brands, products and communities<br>that push the boundaries of what's possible onchain.</p>
+      <div class="hero-cta">
+        <a href="#ventures" class="btn-primary">Explore Ventures</a>
+        <a href="#about" class="btn-ghost">Learn More ↓</a>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="about-inner">
+      <div class="about-label">// About</div>
+      <div class="about-grid">
+        <div class="about-left">
+          <h2 class="section-title">
+            <span>We're re-freezing</span>
+            <span>Web3 hype into</span>
+            <span class="accent">real products.</span>
+          </h2>
+        </div>
+        <div class="about-right">
+          <p>Igloo Inc. is a Web3 company on a mission to create the largest onchain community. We build at the intersection of culture, technology, and community — turning digital ownership into real-world value.</p>
+          <p>From iconic NFT brands to infrastructure powering the next generation of IP, we operate across every layer of the onchain ecosystem.</p>
+          <div class="about-stats">
+            <div class="stat">
+              <span class="stat-num" data-target="400">0</span><span>K+</span>
+              <span class="stat-label">Community Members</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num" data-target="2">0</span><span></span>
+              <span class="stat-label">Core Ventures</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num" data-target="1">0</span><span>B+</span>
+              <span class="stat-label">$ in Ecosystem Volume</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ice Divider -->
+  <div class="ice-divider">
+    <canvas id="ice-canvas"></canvas>
+  </div>
+
+  <!-- Ventures -->
+  <section id="ventures">
+    <div class="ventures-inner">
+      <div class="ventures-label">// Ventures</div>
+      <h2 class="section-title centered">Our Portfolio</h2>
+      <p class="ventures-sub">Each venture sits encased in its own block of ice —<br>a frozen moment of culture, ready to thaw.</p>
+
+      <div class="ventures-grid">
+
+        <!-- Pudgy Penguins -->
+        <div class="venture-card" data-index="0">
+          <div class="card-ice-wrap">
+            <canvas class="card-canvas" data-color="#7dd4fc"></canvas>
+            <div class="card-overlay">
+              <div class="card-tag">NFT / Brand</div>
+              <h3 class="card-title">Pudgy<br>Penguins</h3>
+              <p class="card-desc">The iconic NFT collection and cultural brand leading the charge in Web3 consumer products. 8,888 chubby penguins. Infinite community.</p>
+              <a href="https://www.pudgypenguins.com" target="_blank" class="card-link">Visit ↗</a>
+            </div>
+          </div>
+          <div class="card-glow" style="--glow-color: #7dd4fc"></div>
+        </div>
+
+        <!-- OverpassIP -->
+        <div class="venture-card" data-index="1">
+          <div class="card-ice-wrap">
+            <canvas class="card-canvas" data-color="#a78bfa"></canvas>
+            <div class="card-overlay">
+              <div class="card-tag">IP / Infrastructure</div>
+              <h3 class="card-title">Overpass<br>IP</h3>
+              <p class="card-desc">A next-generation intellectual property management platform built for the onchain era. Bridging digital ownership with real-world licensing.</p>
+              <a href="#" class="card-link">Learn More ↗</a>
+            </div>
+          </div>
+          <div class="card-glow" style="--glow-color: #a78bfa"></div>
+        </div>
+
+        <!-- Coming Soon -->
+        <div class="venture-card coming-soon" data-index="2">
+          <div class="card-ice-wrap">
+            <canvas class="card-canvas" data-color="#38bdf8"></canvas>
+            <div class="card-overlay">
+              <div class="card-tag">Coming Soon</div>
+              <h3 class="card-title">???<br>??????</h3>
+              <p class="card-desc">Something new is forming beneath the ice. Stay close to the community to be the first to know when it emerges.</p>
+              <span class="card-link frozen">Frozen ❄</span>
+            </div>
+          </div>
+          <div class="card-glow" style="--glow-color: #38bdf8"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Marquee -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span>PUDGY PENGUINS</span><span class="sep">✦</span>
+      <span>OVERPASS IP</span><span class="sep">✦</span>
+      <span>ONCHAIN COMMUNITY</span><span class="sep">✦</span>
+      <span>WEB3 CULTURE</span><span class="sep">✦</span>
+      <span>NFT</span><span class="sep">✦</span>
+      <span>IGLOO INC.</span><span class="sep">✦</span>
+      <span>PUDGY PENGUINS</span><span class="sep">✦</span>
+      <span>OVERPASS IP</span><span class="sep">✦</span>
+      <span>ONCHAIN COMMUNITY</span><span class="sep">✦</span>
+      <span>WEB3 CULTURE</span><span class="sep">✦</span>
+      <span>NFT</span><span class="sep">✦</span>
+      <span>IGLOO INC.</span><span class="sep">✦</span>
+    </div>
+  </div>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="contact-inner">
+      <div class="contact-label">// Contact</div>
+      <h2 class="section-title">
+        <span>Let's build</span>
+        <span class="accent">together.</span>
+      </h2>
+      <p class="contact-sub">Whether you're a creator, investor, or community builder — we want to hear from you.</p>
+      <a href="mailto:hello@igloo.inc" class="btn-primary large">hello@igloo.inc ↗</a>
+    </div>
+  </section>
+
+  <!-- Footer with Particles -->
+  <footer id="footer">
+    <canvas id="particle-canvas"></canvas>
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <span class="logo-text">IGLOO</span>
+        <span class="logo-dot">INC.</span>
+      </div>
+      <div class="footer-links">
+        <a href="https://twitter.com/iglooincorporated" target="_blank">Twitter</a>
+        <a href="https://www.pudgypenguins.com" target="_blank">Pudgy Penguins</a>
+        <a href="#about">About</a>
+        <a href="#ventures">Ventures</a>
+      </div>
+      <p class="footer-copy">© 2024 Igloo Inc. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.4/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.4/dist/ScrollTrigger.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
