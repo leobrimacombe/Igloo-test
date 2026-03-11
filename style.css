@@ -569,6 +569,232 @@ body::before {
 .reveal-delay-2 { transition-delay: 0.2s; }
 .reveal-delay-3 { transition-delay: 0.3s; }
 
+/* ─── Cursor Trail ───────────────────────────────────────── */
+.cursor-trail {
+  width: 7px;
+  height: 7px;
+  background: var(--ice-cyan);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9997;
+  mix-blend-mode: screen;
+  transition: opacity 0.05s;
+}
+
+/* ─── Click Ripple ───────────────────────────────────────── */
+.click-ripple {
+  position: fixed;
+  width: 0;
+  height: 0;
+  border: 1.5px solid var(--ice-blue);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9996;
+  animation: rippleExpand 0.9s cubic-bezier(.2,.8,.3,1) forwards;
+}
+.click-ripple::after {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 1px solid rgba(167,139,250,0.5);
+  border-radius: 50%;
+}
+@keyframes rippleExpand {
+  to { width: 140px; height: 140px; opacity: 0; }
+}
+
+/* ─── Shatter Particles ──────────────────────────────────── */
+.shatter-particle {
+  position: fixed;
+  width: 4px;
+  height: 4px;
+  background: var(--ice-blue);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9996;
+  animation: shatterFly 0.9s ease-out forwards;
+  box-shadow: 0 0 6px var(--ice-cyan);
+}
+@keyframes shatterFly {
+  0%   { opacity: 1; transform: translate(0, 0) scale(1); }
+  100% { opacity: 0; transform: translate(var(--tx), var(--ty)) scale(0); }
+}
+
+/* ─── Hero Aurora Glow Overlay ───────────────────────────── */
+#hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 90% 70% at 70% 50%, rgba(125,212,252,0.05) 0%, transparent 65%),
+    radial-gradient(ellipse 70% 90% at 25% 55%, rgba(167,139,250,0.04) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 50% at 50% 80%, rgba(56,189,248,0.03) 0%, transparent 70%);
+  z-index: 1;
+  pointer-events: none;
+  animation: auroraShift 10s ease-in-out infinite alternate;
+}
+@keyframes auroraShift {
+  0%   { opacity: 0.6; transform: scale(1)    translateY(0px); }
+  100% { opacity: 1.0; transform: scale(1.06) translateY(-12px); }
+}
+
+/* ─── Holographic Gradient on Accent Text ────────────────── */
+.section-title .accent,
+.hero-title .accent {
+  background: linear-gradient(135deg,
+    var(--ice-blue)   0%,
+    var(--ice-purple) 35%,
+    var(--ice-cyan)   65%,
+    var(--ice-blue)   100%
+  );
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: holoShift 5s ease infinite;
+}
+@keyframes holoShift {
+  0%   { background-position: 0%   50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0%   50%; }
+}
+
+/* ─── Card 3D Tilt & Shine ───────────────────────────────── */
+.venture-card {
+  transform-style: preserve-3d;
+}
+/* Override old CSS hover transform — now handled by GSAP */
+.venture-card:hover {
+  transform: none;
+  border-color: rgba(125,212,252,0.3);
+}
+.card-ice-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at var(--shine-x, 50%) var(--shine-y, 50%),
+    rgba(255,255,255,0.1) 0%,
+    transparent 55%
+  );
+  border-radius: 16px 16px 0 0;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.venture-card:hover .card-ice-wrap::after { opacity: 1; }
+
+/* ─── Neon Glow on Buttons ───────────────────────────────── */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(45deg,
+    var(--ice-blue), var(--ice-purple), var(--ice-cyan), var(--ice-blue)
+  );
+  background-size: 300% 300%;
+  animation: neonBorder 3s linear infinite;
+  border-radius: 999px;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.btn-primary:hover::before { opacity: 0.7; }
+@keyframes neonBorder {
+  0%   { background-position: 0%   50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0%   50%; }
+}
+.btn-primary:hover {
+  background: #fff;
+  box-shadow: 0 0 40px rgba(125,212,252,0.5), 0 0 80px rgba(125,212,252,0.2);
+}
+
+/* ─── Stat Number Neon Glow ──────────────────────────────── */
+.stat-num,
+.stat > span:nth-child(2) {
+  text-shadow: 0 0 18px rgba(125,212,252,0.6), 0 0 36px rgba(125,212,252,0.25);
+}
+
+/* ─── Floating Scroll Indicator ──────────────────────────── */
+.scroll-indicator {
+  animation: indicatorFloat 3.5s ease-in-out infinite;
+}
+@keyframes indicatorFloat {
+  0%, 100% { transform: translateY(0px); opacity: 0.5; }
+  50%       { transform: translateY(-8px); opacity: 0.8; }
+}
+
+/* ─── Marquee Separator Pulse ────────────────────────────── */
+.marquee-track .sep {
+  display: inline-block;
+  animation: sepGlow 2.5s ease-in-out infinite;
+}
+@keyframes sepGlow {
+  0%, 100% { opacity: 0.5; transform: scale(1);   text-shadow: none; }
+  50%       { opacity: 1;   transform: scale(1.35); text-shadow: 0 0 12px var(--ice-blue); }
+}
+
+/* ─── 3D Scroll Reveal ───────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: perspective(900px) translateY(45px) rotateX(6deg);
+  transition:
+    opacity   0.9s cubic-bezier(.25,.46,.45,.94),
+    transform 0.9s cubic-bezier(.25,.46,.45,.94);
+}
+.reveal.in-view {
+  opacity: 1;
+  transform: perspective(900px) translateY(0) rotateX(0deg);
+}
+
+/* ─── Card Entrance Stagger ──────────────────────────────── */
+.venture-card.reveal { transition-delay: calc(var(--card-i, 0) * 0.1s); }
+
+/* ─── Ice label pulse ────────────────────────────────────── */
+.about-label, .ventures-label, .contact-label {
+  position: relative;
+}
+.about-label::before, .ventures-label::before, .contact-label::before {
+  content: '';
+  position: absolute;
+  left: -12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 5px;
+  height: 5px;
+  background: var(--ice-blue);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--ice-blue), 0 0 16px rgba(125,212,252,0.4);
+  animation: dotPulse 2s ease-in-out infinite;
+}
+@keyframes dotPulse {
+  0%, 100% { opacity: 0.5; transform: translateY(-50%) scale(1); }
+  50%       { opacity: 1;   transform: translateY(-50%) scale(1.6); }
+}
+
+/* ─── Hero Title Line Clip Enhancement ───────────────────── */
+.hero-title .line {
+  clip-path: inset(0 0 0 0);
+}
+
+/* ─── Card hover border glow ─────────────────────────────── */
+.venture-card {
+  box-shadow: 0 0 0 0 transparent;
+  transition: box-shadow 0.4s, border-color 0.3s;
+}
+.venture-card:hover {
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 30px rgba(125,212,252,0.08);
+}
+
 /* ─── Responsive ─────────────────────────────────────────── */
 @media (max-width: 900px) {
   #nav { padding: 1.2rem 2rem; }
@@ -581,4 +807,5 @@ body::before {
   #contact { padding: 7rem 2rem; }
   .footer-inner { padding: 3rem 2rem; }
   .scroll-indicator { display: none; }
+  .cursor-trail, #cursor, #cursor-follower { display: none; }
 }
